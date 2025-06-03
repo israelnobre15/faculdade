@@ -1,7 +1,6 @@
 import pickle
+import zlib
 from math import gcd
-
-from utils import Helper
 
 
 class Rsa:
@@ -32,36 +31,25 @@ class Rsa:
         self.__d = pow(self.e, -1, self.t)
 
     def __message_to_int(self, message):
-        # Converte o objeto para bytes e depois para um inteiro
         data = pickle.dumps(message)
-        m = int.from_bytes(data, byteorder="big")
+        compressed = zlib.compress(data)
+        m = int.from_bytes(compressed, byteorder="big")
         return m
 
     def __int_to_message(self, m_int):
-        # Converte o inteiro de volta para bytes e carrega o objeto
         byte_length = (m_int.bit_length() + 7) // 8
-        data = m_int.to_bytes(byte_length, byteorder="big")
-        return pickle.loads(data)
+        compressed = m_int.to_bytes(byte_length, byteorder="big")
+        data = zlib.decompress(compressed)
+        message = pickle.loads(data)
+        return message
 
-    def criptografar(self, message):
+    def criptografar(self, message, e, n):
         m = self.__message_to_int(message)
-        if m >= self.n:
+        if m >= n:
             raise ValueError("Mensagem é muito grande para a chave RSA.")
-        c = pow(m, self.e, self.n)
+        c = pow(m, e, n)
         return c
 
     def descriptografar(self, encrypt_message):
         m = pow(encrypt_message, self.__d, self.n)
         return self.__int_to_message(m)
-
-
-p = Helper.generate_large_prime(1024)
-q = Helper.generate_large_prime(1024)
-
-rsa = Rsa(p=p, q=q)
-
-
-mensagem_criptografada = rsa.criptografar(["tesate", "1", 2, 3])
-
-mensagem_descriptografada = rsa.descriptografar(mensagem_criptografada)
-print(rsa.e, p, q)
