@@ -2,7 +2,7 @@ package SistemaLogistico;
 
 public class FabricaMaritimo implements iFabricaModalidade {
     @Override
-    public ABCModalidade fabricar(Double tarifa) {
-        return new Maritimo(tarifa);
+    public iModalidade fabricar(Double tarifa,Remessa remessa) {
+        return new Maritimo(tarifa,remessa);
     }
 }

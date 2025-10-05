@@ -4,6 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/avaliacao-padroes-projeto.iml" filepath="$PROJECT_DIR$/avaliacao-padroes-projeto.iml" />
       <module fileurl="file://$PROJECT_DIR$/questao-1/questao-1.iml" filepath="$PROJECT_DIR$/questao-1/questao-1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/questao-2/questao-2.iml" filepath="$PROJECT_DIR$/questao-2/questao-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/questao-3/questao-3.iml" filepath="$PROJECT_DIR$/questao-3/questao-3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/questao-4/questao-4.iml" filepath="$PROJECT_DIR$/questao-4/questao-4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/questao-5/questao-5.iml" filepath="$PROJECT_DIR$/questao-5/questao-5.iml" />
     </modules>
   </component>
 </project>

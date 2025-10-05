@@ -2,7 +2,7 @@ package SistemaLogistico;
 
 public class FabricaTerrestre implements iFabricaModalidade {
     @Override
-    public ABCModalidade fabricar(Double tarifa) {
-        return new Terrestre(tarifa);
+    public iModalidade fabricar(Double tarifa,Remessa remessa) {
+        return new Terrestre(tarifa,remessa);
     }
 }

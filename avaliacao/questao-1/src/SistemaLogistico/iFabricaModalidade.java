@@ -1,5 +1,5 @@
 package SistemaLogistico;
 
 public interface iFabricaModalidade {
-    public ABCModalidade fabricar(Double tarifa);
+    public iModalidade fabricar(Double tarifa, Remessa remessa);
 }
